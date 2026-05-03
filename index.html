@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slamet Santoso</title>
+    
+    <!-- Link ke FontAwesome untuk mengambil logo Telegram, Discord, dan X -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. BASE & TYPOGRAPHY
+           ========================================= */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at center bottom, #3a0028 0%, #000000 70%);
+            background-attachment: fixed; 
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           2. NAVIGATION BAR
+           ========================================= */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(0, 0, 0, 0.5); 
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo strong { font-size: 1.5rem; letter-spacing: 2px; color: #ffffff; }
+        .logo span { color: #2E8B57; }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: #2E8B57; }
+
+        /* =========================================
+           3. LAYOUT CONTAINERS
+           ========================================= */
+        .container { padding: 5rem 10%; }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            min-height: 80vh;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h1 { 
+            font-size: 4rem; 
+            margin: 0 0 1rem 0; 
+            line-height: 1.2; 
+            color: #2E8B57; /* Ini yang bikin tulisan Hello I'm jadi hijau */
+        }
+
+        .hero-text span {
+            color: #ffffff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #2E8B57, 0 0 40px #2E8B57, 0 0 80px #2E8B57;
+            animation: pulsate 1.5s infinite alternate;
+        }
+
+        .hero-text p { font-size: 1.2rem; color: #cccccc; margin-bottom: 2.5rem; max-width: 500px; }
+
+        .profile-wrapper { flex: 1; display: flex; justify-content: center; min-width: 300px; }
+        
+        .profile-img {
+            width: 350px; height: 350px; border-radius: 50%; object-fit: cover;
+            border: 5px solid #585375; box-shadow: 0 0 30px rgba(46, 139, 87, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        /* =========================================
+           5. BUTTONS & CONTACT LINKS
+           ========================================= */
+        .btn {
+            display: inline-block; background-color: #2E8B57; color: white;
+            padding: 1rem 2.5rem; border-radius: 30px; text-decoration: none;
+            font-weight: bold; letter-spacing: 1px; transition: all 0.4s ease; border: 2px solid #2E8B57;
+        }
+
+        .btn:hover {
+            background-color: transparent; color: #2E8B57; transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 139, 87, 0.2); cursor: pointer;
+        }
+
+        /* Styling untuk Tombol Kontak Sosmed */
+        .contact-grid {
+            display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(88, 83, 117, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 139, 87, 0.3); padding: 1.2rem 2.5rem; border-radius: 50px;
+            color: #ffffff; text-decoration: none; font-size: 1.2rem; font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(46, 139, 87, 0.2); border-color: #2E8B57; color: #2E8B57;
+            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3); transform: translateY(-5px);
+        }
+
+        .contact-item i { font-size: 1.8rem; } /* Ukuran Logo */
+
+        /* =========================================
+           6. EXPERIENCE SECTION
+           ========================================= */
+        .section-title { color: #2E8B57; font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+        .experience-grid { display: flex; flex-direction: column; gap: 2rem; }
+        
+        .experience-card {
+            background: rgba(88, 83, 117, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 20px;
+            border-left: 6px solid #2E8B57; transition: all 0.4s ease; opacity: 0; transform: translateY(50px);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px) !important; background: rgba(88, 83, 117, 0.25);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); border-left: 6px solid #ffffff;
+        }
+
+        .experience-card h3 { margin-top: 0; font-size: 1.5rem; color: #ffffff; }
+        .experience-card p.date { color: #2E8B57; font-style: italic; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .experience-card ul { list-style: none; padding: 0; color: #cccccc; }
+        .experience-card ul li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
+        .experience-card ul li::before { content: "▹"; position: absolute; left: 0; color: #2E8B57; }
+
+        .card-link {
+            display: inline-flex; align-items: center; color: #2E8B57; text-decoration: none;
+            font-size: 0.9rem; margin-right: 15px; margin-top: 10px; font-weight: bold; transition: color 0.3s ease;
+        }
+        .card-link:hover { color: #ffffff; }
+        .card-link::before { content: "🔗 "; font-size: 0.8rem; margin-right: 5px; }
+
+        /* =========================================
+           7. ANIMATIONS
+           ========================================= */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes pulsate {
+            100% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #2E8B57, 0 0 40px #2E8B57, 0 0 80px #2E8B57, 0 0 100px #2E8B57; }
+            0% { text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #2E8B57, 0 0 10px #2E8B57, 0 0 45px #2E8B57, 0 0 55px #2E8B57; }
+        }
+
+        /* =========================================
+           8. RESPONSIVE DESIGN (MOBILE)
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            .container { padding: 3rem 5%; }
+            nav { flex-direction: column; padding: 1rem; }
+            .nav-links { margin-top: 1rem; }
+            .nav-links a { margin: 0 10px; font-size: 0.8rem; }
+            .hero { flex-direction: column-reverse; text-align: center; gap: 2rem; }
+            .hero-text p { margin: 0 auto 2rem auto; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .profile-img { width: 250px; height: 250px; }
+            .section-title { font-size: 2rem; }
+            .experience-card { padding: 1.5rem; }
+            .contact-item { width: 100%; justify-content: center; } /* Tombol kontak penuh layar di HP */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>WEB3<span>.</span></strong></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#journey">Journey</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container" id="about">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hello, I'm <br><span>Slamet Santoso</span></h1>
+                <p>A Web3 Native active since 2021 with deep expertise in DeFi, spot/futures trading, and decentralized ecosystems. I currently specialize in community growth and project expansion, while simultaneously leveling up my UI/UX design and Fullstack Web Development skills.</p>
+                <a href="#contact" class="btn">Let's Connect</a>
+            </div>
+            <div class="profile-wrapper">
+                <img src="aset/pfp.jpg" alt="Slamet Santoso" class="profile-img"> 
+            </div>
+        </section>
+    </div>
+
+    <div class="container" id="journey">
+        <h2 class="section-title">My Journey & Experience</h2>
+        
+        <div class="experience-grid">
+            
+            <div class="experience-card reveal">
+                <h3>Community Growth & Project Expansion</h3>
+                <p class="date">Luxxcoin | 2025 - Present</p>
+                <ul>
+                    <li>Spearheading community growth initiatives and executing project expansion strategies.</li>
+                    <li>Acting as a core Moderator to maintain a healthy, engaged, and informed community.</li>
+                    <li>Managing day-to-to operations and communication between the core team and users.</li>
+                </ul>
+                <a href="https://luxxcoin.io" target="_blank" class="card-link">luxxcoin.io</a>
+                <a href="https://x.com/Luxx_Coin" target="_blank" class="card-link">@Luxx_Coin on X</a>
+            </div>
+
+            <div class="experience-card reveal">
+                <h3>Assistant Community Growth</h3>
+                <p class="date">Lumint | 2026 - Present</p>
+                <ul>
+                    <li>Assisting in the development and execution of community-driven marketing campaigns.</li>
+                    <li>Monitoring social channels and fostering organic growth within the ecosystem.</li>
+                </ul>
+                <a href="https://www.neuraltrust.io/" target="_blank" class="card-link">neuraltrust.io</a>
+                <a href="https://x.com/Lumint_official" target="_blank" class="card-link">@Lumint_official on X</a>
+            </div>
+
+            <div class="experience-card reveal">
+                <h3>Crypto Native & Trader</h3>
+                <p class="date">Independent | 2021 - Present</p>
+                <ul>
+                    <li>Over 5 years of active experience in the cryptocurrency markets, including Spot and Futures trading.</li>
+                    <li>Deep understanding of DeFi protocols, yield farming, memecoin markets, and tokenomics.</li>
+                    <li>Actively participating in early-stage project testnets and airdrop ecosystems.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card reveal">
+                <h3>Digital Creator & Fullstack Dev Learner</h3>
+                <p class="date">Continuous Learning & Development</p>
+                <ul>
+                    <li>Proficient in multimedia design and video editing using <strong>Adobe Photoshop, Illustrator, and Premiere Pro</strong>.</li>
+                    <li>Skilled in data management and analysis using <strong>Microsoft Excel</strong>.</li>
+                    <li>Currently deepening knowledge in modern Web Development environments (VS Code, Node.js, Frontend & Backend) to transition into a Fullstack Developer role.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BAGIAN KONTAK BARU -->
+    <div class="container" id="contact">
+        <h2 class="section-title">Let's Build The Future</h2>
+        
+        <div class="contact-grid reveal">
+            <!-- Link Telegram -->
+            <a href="https://t.me/ErenLuxx" target="_blank" class="contact-item">
+                <i class="fa-brands fa-telegram"></i> Telegram
+            </a>
+            
+            <!-- Link Discord -->
+            <a href="https://discord.com/users/977835964909096960" target="_blank" class="contact-item">
+                <i class="fa-brands fa-discord"></i> Discord
+            </a>
+            
+            <!-- Link X (Twitter) -->
+            <a href="https://x.com/slametgendul" target="_blank" class="contact-item">
+                <i class="fa-brands fa-x-twitter"></i> Twitter
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Reveal Animation
+        function revealCards() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealCards);
+        revealCards();
+
+        console.log("%cHello Web3 Builders! 👋", "color: #2E8B57; font-size: 24px; font-weight: bold;");
+        console.log("%cLooking for a community growth expert & fullstack learner? Let's connect!", "font-size: 16px; color: #585375;");
+    </script>
+</body>
+</html>

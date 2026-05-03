@@ -96,9 +96,17 @@
         .profile-wrapper { flex: 1; display: flex; justify-content: center; min-width: 300px; }
         
         .profile-img {
-            width: 350px; height: 350px; border-radius: 50%; object-fit: cover;
-            border: 5px solid #585375; box-shadow: 0 0 30px rgba(46, 139, 87, 0.3);
+            width: 350px;
+            height: 350px;
+            border-radius: 30px; /* Diubah dari 50% menjadi 30px untuk efek kotak membulat */
+            object-fit: cover;
+            border: 5px solid #585375;
+            box-shadow: 0 0 30px rgba(46, 139, 87, 0.3);
             transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         .profile-img:hover { transform: scale(1.05); }

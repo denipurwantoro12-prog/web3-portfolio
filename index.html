@@ -153,22 +153,22 @@
         .experience-grid { display: flex; flex-direction: column; gap: 2rem; }
         
         .experience-card {
-            /* 30% Secondary: Glassmorphism putih transparan untuk KONTRAS TINGGI dengan background Burgundy */
-            background: rgba(255, 255, 255, 0.08); 
+            /* 30% Secondary: Menggunakan Dark Glass (Hitam Transparan 55%) agar kontras dengan Maroon */
+            background: rgba(0, 0, 0, 0.55); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             
-            /* Rule of Contrast DKV: Border putih tipis mempertegas batas/bentuk kotak dari background */
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+            /* Border abu-abu terang untuk mempertegas bentuk kotak */
+            border: 1px solid rgba(255, 255, 255, 0.15); 
             
             padding: 2.5rem;
             border-radius: 20px;
             
-            /* 10% Accent: Garis Emerald Green sebagai Focal Point (titik fokus) */
+            /* 10% Accent: Emerald Green tetap dipertahankan sebagai focal point */
             border-left: 6px solid #2E8B57; 
             
-            /* Drop shadow hitam pekat agar kartu terlihat "melayang" dan terpisah dari background */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Bayangan hitam pekat agar card melayang di atas background maroon */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
             
             transition: all 0.4s ease;
             opacity: 0;
@@ -178,12 +178,12 @@
         .experience-card:hover {
             transform: translateY(-10px) !important;
             
-            /* Interaktivitas: Kartu menjadi sedikit lebih terang saat di-hover */
-            background: rgba(255, 255, 255, 0.15); 
+            /* Saat di-hover, card menjadi sedikit lebih gelap agar teks makin fokus */
+            background: rgba(0, 0, 0, 0.75); 
             border: 1px solid rgba(255, 255, 255, 0.3);
             
-            /* Glow hijau tipis yang menyatu dengan aksen 10% */
-            box-shadow: 0 15px 40px rgba(46, 139, 87, 0.25); 
+            /* Glow hijau Emerald yang memancar di sekeliling kotak */
+            box-shadow: 0 15px 40px rgba(46, 139, 87, 0.3); 
             border-left: 6px solid #ffffff;
         }
 

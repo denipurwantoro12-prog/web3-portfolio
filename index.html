@@ -153,14 +153,38 @@
         .experience-grid { display: flex; flex-direction: column; gap: 2rem; }
         
         .experience-card {
-            background: rgba(88, 83, 117, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05); padding: 2.5rem; border-radius: 20px;
-            border-left: 6px solid #2E8B57; transition: all 0.4s ease; opacity: 0; transform: translateY(50px);
+            /* 30% Secondary: Glassmorphism putih transparan untuk KONTRAS TINGGI dengan background Burgundy */
+            background: rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            
+            /* Rule of Contrast DKV: Border putih tipis mempertegas batas/bentuk kotak dari background */
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            
+            padding: 2.5rem;
+            border-radius: 20px;
+            
+            /* 10% Accent: Garis Emerald Green sebagai Focal Point (titik fokus) */
+            border-left: 6px solid #2E8B57; 
+            
+            /* Drop shadow hitam pekat agar kartu terlihat "melayang" dan terpisah dari background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(50px);
         }
 
         .experience-card:hover {
-            transform: translateY(-10px) !important; background: rgba(88, 83, 117, 0.25);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); border-left: 6px solid #ffffff;
+            transform: translateY(-10px) !important;
+            
+            /* Interaktivitas: Kartu menjadi sedikit lebih terang saat di-hover */
+            background: rgba(255, 255, 255, 0.15); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            
+            /* Glow hijau tipis yang menyatu dengan aksen 10% */
+            box-shadow: 0 15px 40px rgba(46, 139, 87, 0.25); 
+            border-left: 6px solid #ffffff;
         }
 
         .experience-card h3 { margin-top: 0; font-size: 1.5rem; color: #ffffff; }

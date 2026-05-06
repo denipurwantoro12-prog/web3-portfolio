@@ -70,15 +70,59 @@
     .btn-p{background:var(--cyan);color:var(--bg);border-color:var(--cyan)}.btn-p:hover{background:transparent;color:var(--cyan)}
     .btn-o{background:transparent;color:var(--text);border-color:var(--border)}.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
     .btn-j{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}.btn-j:hover{background:var(--gold);color:var(--bg)}
-    /* terminal */
-    .term{background:var(--surface);border:1px solid var(--border);box-shadow:0 0 60px rgba(0,255,224,.06)}
-    .tbar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
-    .td{width:10px;height:10px;border-radius:50%}.td:nth-child(1){background:#ff5f56}.td:nth-child(2){background:#ffbd2e}.td:nth-child(3){background:#27c93f}
-    .ttitle{margin-left:8px;font-size:10.5px;color:var(--muted);letter-spacing:.1em}
-    .tbody{padding:20px 22px;font-size:12px;line-height:1.95}
-    .tl{display:flex;gap:10px}.tp{color:var(--cyan);flex-shrink:0}.tc{color:var(--gold)}
-    .to{padding-left:18px;color:var(--text)}.tk{color:var(--violet)}.tv{color:#7dd3b0}.tm{color:var(--muted)}
-    .cur{animation:cur .8s step-end infinite}@keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
+    
+    /* Info Card (Pengganti Terminal) */
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0, 255, 224, 0.04);
+    }
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 3px; height: 100%;
+      background: var(--cyan);
+    }
+    .ic-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ic-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .ic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .ic-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ic-label {
+      font-size: 9.5px;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .ic-val {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .ic-val strong {
+      color: var(--cyan);
+      font-weight: 400;
+    }
 
     /* -- SECTION HEADER -- */
     .seye{font-size:9.5px;letter-spacing:.32em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:14px}
@@ -271,24 +315,32 @@
         </div>
       </div>
 
-      <div class="term reveal">
-        <div class="tbar"><div class="td"></div><div class="td"></div><div class="td"></div><span class="ttitle">~/profile.json</span></div>
-        <div class="tbody">
-          <div class="tl"><span class="tp">❯</span><span class="tc">cat identity.json</span></div>
-          <div class="to">{</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"crypto_since"</span>: <span class="tv">"2021"</span>,</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"role"</span>: <span class="tv">"Community Growth"</span>,</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"active_at"</span>: [</div>
-          <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"luxxcoin.io"</span>,</div>
-          <div class="to">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"neuraltrust.io"</span></div>
-          <div class="to">&nbsp;&nbsp;],</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"expertise"</span>: [<span class="tv">"DeFi"</span>, <span class="tv">"Trading"</span>, <span class="tv">"Airdrops"</span>],</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"tools"</span>: <span class="tv">"PS · AI · Premiere · Excel"</span>,</div>
-          <div class="to">&nbsp;&nbsp;<span class="tk">"learning"</span>: <span class="tv">"Fullstack Dev 🚀"</span></div>
-          <div class="to">}</div>
-          <div class="tl" style="margin-top:10px"><span class="tp">❯</span><span class="tm"># building the future, on-chain</span><span class="cur">▌</span></div>
+      <div class="info-card reveal">
+        <div class="ic-title">Quick Facts</div>
+        <div class="ic-list">
+          <div class="ic-item">
+            <span class="ic-label">Primary Focus</span>
+            <span class="ic-val"><strong>Community Growth</strong> & Project Expansion</span>
+          </div>
+          <div class="ic-item">
+            <span class="ic-label">Experience</span>
+            <span class="ic-val">Active in Web3 & Crypto since <strong>2021</strong></span>
+          </div>
+          <div class="ic-item">
+            <span class="ic-label">Current Ecosystems</span>
+            <span class="ic-val"><strong>Luxx Coin</strong> (DeFi) & <strong>NeuralTrust</strong> (AI × Web3)</span>
+          </div>
+          <div class="ic-item">
+            <span class="ic-label">Key Expertise</span>
+            <span class="ic-val">Community Strategy, Trading, On-chain Research</span>
+          </div>
+          <div class="ic-item">
+            <span class="ic-label">Creative Tools</span>
+            <span class="ic-val">Photoshop, Illustrator, Premiere Pro</span>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
@@ -623,7 +675,7 @@
 </div>
 
 <script>
-  // 1. REVEAL ANIMATION (Paling utama agar teks tidak nge-blank)
+  // 1. REVEAL ANIMATION 
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -633,14 +685,13 @@
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");
         
-        // Animasi bar skill
         var bars = reveals[i].querySelectorAll('.lfill[data-w]');
         bars.forEach(b => b.style.width = b.dataset.w + '%');
       }
     }
   }
   window.addEventListener("scroll", reveal);
-  setTimeout(reveal, 100); // Trigger segera setelah direfresh
+  setTimeout(reveal, 100);
 
   // 2. CURSOR ANIMATION
   try {
@@ -656,7 +707,7 @@
     ac();
   } catch (e) { console.log("Cursor script error"); }
 
-  // 3. BACKGROUND PARTICLES (Dikasih try-catch pelindung)
+  // 3. BACKGROUND PARTICLES 
   try {
     const cv = document.getElementById('bgCanvas'), cx = cv.getContext('2d');
     function rs() { cv.width = innerWidth; cv.height = innerHeight; }

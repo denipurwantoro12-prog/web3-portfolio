@@ -46,7 +46,7 @@
     body:has(a:hover) #cRing,body:has(button:hover) #cRing{width:52px;height:52px;opacity:.18}
 
     /* Background Canvas */
-    #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.25}
+    #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35} /* Sedikit diterangin biar kerlipnya jelas */
 
     /* Layout Helpers */
     .wrap{max-width:1140px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
@@ -392,6 +392,7 @@
 </div>
 
 <script>
+  // Animasi Reveal saat scroll
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
@@ -407,6 +408,7 @@
   window.addEventListener("scroll", reveal);
   setTimeout(reveal, 100);
 
+  // Animasi Kursor Custom
   const dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
@@ -418,28 +420,46 @@
   }
   ac();
 
+  // Animasi Background Kerlip (Constellation Web3)
   try {
     const cv = document.getElementById('bgCanvas'), cx = cv.getContext('2d');
     function rs() { cv.width = innerWidth; cv.height = innerHeight; }
     rs(); window.addEventListener('resize', rs);
-    const pts = Array.from({length: 50}, () => ({
+    const pts = Array.from({length: 60}, () => ({
       x: Math.random() * innerWidth, y: Math.random() * innerHeight,
-      vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
-      r: Math.random() * 1.2 + .4, o: Math.random() * .3 + .1
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.4 + .4, o: Math.random() * .4 + .15
     }));
     function draw() {
       cx.clearRect(0, 0, cv.width, cv.height);
+      
+      // Update posisi titik
       pts.forEach(p => { 
         p.x += p.vx; p.y += p.vy; 
         if(p.x < 0) p.x = cv.width; if(p.x > cv.width) p.x = 0; 
         if(p.y < 0) p.y = cv.height; if(p.y > cv.height) p.y = 0; 
-        cx.beginPath(); cx.fillStyle = `rgba(34,211,238,${p.o})`; cx.arc(p.x, p.y, p.r, 0, Math.PI * 2); cx.fill();
+      });
+
+      // Bikin garis kerlip yang nyambungin antar titik (Tadi bagian ini yang kehapus!)
+      pts.forEach((a, i) => {
+        pts.slice(i + 1).forEach(b => {
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 130) { 
+            cx.beginPath(); 
+            // Bikin garis cyan yang memudar sesuai jarak
+            cx.strokeStyle = `rgba(34,211,238,${.10 * (1 - d / 130)})`; 
+            cx.lineWidth = .5; cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); 
+          }
+        });
+        // Gambar titiknya
+        cx.beginPath(); cx.fillStyle = `rgba(34,211,238,${a.o})`; cx.arc(a.x, a.y, a.r, 0, Math.PI * 2); cx.fill();
       });
       requestAnimationFrame(draw);
     }
     draw();
-  } catch (e) { console.log("Canvas blocked"); }
+  } catch (e) { console.log("Canvas animation blocked"); }
 
+  // Fungsi Modal Journey
   function openJ() { document.getElementById('jModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
   function closeJ() { document.getElementById('jModal').classList.remove('open'); document.body.style.overflow = ''; }
   function closeJOuter(e) { if (e.target.classList.contains('overlay')) closeJ(); }

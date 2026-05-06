@@ -13,7 +13,7 @@
       --bg: #0B1120;
       --bg2: #0F172A;
 
-      /* 30% SECONDARY: Cards, Borders, and Text */
+      /* 30% SECONDARY: Surfaces & Text (High Contrast) */
       --surface: #1E293B;
       --surface2: #334155;
       --border: #334155;
@@ -21,7 +21,7 @@
       --muted: #94A3B8;       
       --muted-light: #CBD5E1; 
 
-      /* 10% ACCENT: Vibrant Colors for Links, Badges, Buttons */
+      /* 10% ACCENT: Vibrant Action Colors */
       --cyan: #22D3EE;
       --cyan-dim: rgba(34, 211, 238, 0.15);
       --violet: #A78BFA;
@@ -31,29 +31,32 @@
       --green: #4ADE80;
       --green-dim: rgba(74, 222, 128, 0.15);
 
-      /* Font Variables Updated */
       --sans: 'Inter', sans-serif;
       --serif: 'Cormorant Garamond', serif;
     }
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14.5px;line-height:1.7;overflow-x:hidden;cursor:none}
-    /* cursor */
+
+    /* Custom Cursor */
     #cursor{position:fixed;top:0;left:0;z-index:9999;pointer-events:none}
     #cDot{width:6px;height:6px;background:var(--cyan);border-radius:50%;position:absolute;transform:translate(-50%,-50%)}
     #cRing{width:32px;height:32px;border:1px solid var(--cyan);border-radius:50%;position:absolute;transform:translate(-50%,-50%);opacity:.4;transition:width .2s,height .2s,opacity .2s}
     body:has(a:hover) #cRing,body:has(button:hover) #cRing{width:52px;height:52px;opacity:.18}
-    /* canvas */
+
+    /* Background Canvas */
     #bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.25}
-    /* layout */
+
+    /* Layout Helpers */
     .wrap{max-width:1140px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
     section{padding:96px 0}
     .glow{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
-    /* scrollbar */
-    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border)}
-    .modal::-webkit-scrollbar{width:4px}.modal::-webkit-scrollbar-thumb{background:var(--cyan-dim)}
 
-    /* -- NAV -- */
+    /* Scrollbar */
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border)}
+
+    /* -- NAVIGATION -- */
     nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 40px;
       display:flex;align-items:center;justify-content:space-between;
       background:rgba(11, 17, 32, .85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
@@ -63,22 +66,21 @@
     .nav-links a{color:var(--muted-light);font-size:12px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:color .2s;font-weight:500}
     .nav-links a:hover,.nav-links a.act{color:var(--cyan)}
     .nav-links a.journey-link{color:var(--gold)}
-    .nav-links a.journey-link:hover{color:var(--gold)}
     .nav-badge{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted-light);font-weight:500}
     .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:bl 2s infinite}
     @keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
 
-    /* -- HERO -- */
+    /* -- HERO SECTION -- */
     #hero{min-height:100vh;display:flex;align-items:center;padding-top:76px;position:relative;overflow:hidden}
     .hero-grid{display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:center}
     .eyebrow{font-size:11px;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-weight:600}
     .eyebrow::before{content:'';width:32px;height:1px;background:var(--cyan)}
-    h1.hname{font-family:var(--serif);font-size:clamp(52px,7.5vw,90px);font-weight:300;line-height:1.04;color:var(--text);margin-bottom:10px}
+    h1.hname{font-family:var(--serif);font-size:clamp(52px, 7.5vw, 90px);font-weight:300;line-height:1.04;color:var(--text);margin-bottom:10px}
     h1.hname em{font-style:italic;color:var(--gold)}
     .hsub{font-size:14px;color:var(--muted-light);letter-spacing:.05em;margin-bottom:10px;font-weight:500}
     .hsub span{color:var(--cyan);font-weight:600}
     .hroles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-    .rchip{font-size:11px;padding:5px 14px;border:1px solid var(--border);border-radius:4px;color:var(--muted-light);letter-spacing:.05em;background:var(--surface);font-weight:500}
+    .rchip{font-size:11px;padding:5px 14px;border:1px solid var(--border);border-radius:4px;color:var(--muted-light);background:var(--surface);font-weight:500}
     .rchip.on{border-color:var(--cyan-dim);color:var(--cyan);background:var(--cyan-dim);font-weight:600}
     .hp{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--muted-light);line-height:1.6;max-width:520px;margin-bottom:36px}
     .btns{display:flex;gap:14px;flex-wrap:wrap}
@@ -87,7 +89,7 @@
     .btn-o{background:var(--surface);color:var(--text);border-color:var(--border)}.btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
     .btn-j{background:var(--gold-dim);color:var(--gold);border-color:var(--gold)}.btn-j:hover{background:var(--gold);color:var(--bg)}
     
-    /* Info Card */
+    /* Quick Facts Card (Executive Summary) */
     .info-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -116,37 +118,16 @@
     .ic-title::after {
       content: ''; flex: 1; height: 1px; background: var(--border);
     }
-    .ic-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .ic-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .ic-label {
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .ic-val {
-      font-size: 14px;
-      color: var(--muted-light);
-      line-height: 1.5;
-    }
-    .ic-val strong {
-      color: var(--cyan);
-      font-weight: 600;
-    }
+    .ic-list { display: flex; flex-direction: column; gap: 18px; }
+    .ic-item { display: flex; flex-direction: column; gap: 4px; }
+    .ic-label { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .ic-val { font-size: 14px; color: var(--muted-light); line-height: 1.5; }
+    .ic-val strong { color: var(--cyan); font-weight: 600; }
 
-    /* -- SECTION HEADER -- */
+    /* -- SECTION HEADERS -- */
     .seye{font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:14px}
     .seye::after{content:'';flex:1;height:1px;background:var(--border)}
-    .stitle{font-family:var(--serif);font-size:clamp(32px,4vw,50px);font-weight:300;color:var(--text);line-height:1.15;margin-bottom:44px}
+    .stitle{font-family:var(--serif);font-size:clamp(32px, 4vw, 50px);font-weight:300;color:var(--text);line-height:1.15;margin-bottom:44px}
     .stitle em{font-style:italic;color:var(--gold)}
 
     /* -- ABOUT -- */
@@ -158,137 +139,73 @@
     .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),transparent)}
     .stat-n{font-size:28px;color:var(--cyan);font-weight:700;line-height:1}
     .stat-l{font-size:10.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:8px;font-weight:600}
-    .eco-g{display:flex;flex-direction:column;gap:20px}
-    .eco-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
-    .eco-tags{display:flex;flex-wrap:wrap;gap:8px}
-    .etag{font-size:12px;padding:6px 14px;border:1px solid;border-radius:20px;font-weight:500}
-    .ec{border-color:var(--cyan-dim);color:var(--cyan);background:var(--cyan-dim)}
-    .eg{border-color:var(--gold-dim);color:var(--gold);background:var(--gold-dim)}
-    .ev{border-color:var(--violet-dim);color:var(--violet);background:var(--violet-dim)}
-    .em{border-color:var(--border);color:var(--muted-light);background:var(--surface)}
 
     /* -- EXPERIENCE -- */
     .exp-g{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .exp-c{border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative}
+    .exp-c{border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow:hidden;transition:all .3s;position:relative}
     .exp-c:hover{border-color:var(--cyan);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.3)}
     .exp-c::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--cyan)}
-    .exp-c.ga::before{background:var(--gold)}.exp-c.ga:hover{border-color:var(--gold)}
+    .exp-c.ga::before{background:var(--gold)}
     .exp-top{padding:28px 28px 20px}
     .exp-badge{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border:1px solid;border-radius:4px;margin-bottom:16px}
     .ebc{color:var(--cyan);border-color:var(--cyan-dim);background:var(--cyan-dim)}
     .ebg{color:var(--gold);border-color:var(--gold-dim);background:var(--gold-dim)}
-    .exp-period{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.05em;margin-bottom:8px}
-    .exp-title{font-family:var(--serif);font-size:26px;color:var(--text);font-weight:400;margin-bottom:6px;line-height:1.2}
-    .exp-org{font-size:14px;color:var(--cyan);margin-bottom:16px;font-weight:600}
+    .exp-title{font-family:var(--serif);font-size:26px;color:var(--text);font-weight:400;margin-bottom:6px}
+    .exp-org{font-size:14px;color:var(--cyan);font-weight:600;margin-bottom:16px}
     .exp-org.gold{color:var(--gold)}
-    .exp-desc{font-size:14px;color:var(--muted-light);line-height:1.7;margin-bottom:20px}
-    .duties{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-    .duty{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted-light);line-height:1.6}
-    .duty::before{content:'→';color:var(--cyan);flex-shrink:0;font-weight:bold}
-    .exp-roles-row{display:flex;flex-wrap:wrap;gap:8px;padding:16px 28px;border-top:1px solid var(--border)}
-    .rc{font-size:11px;padding:4px 12px;border:1px solid var(--border);border-radius:4px;color:var(--muted-light);background:var(--bg2);font-weight:500}
-    .exp-bot{padding:16px 28px;border-top:1px solid var(--border);background:var(--bg2);display:flex;gap:16px;flex-wrap:wrap}
-    .elink{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted-light);text-decoration:none;transition:color .2s;font-weight:500}
-    .elink:hover{color:var(--cyan)}.elink.gh:hover{color:var(--gold)}
+    .duty{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted-light);line-height:1.6;margin-bottom:8px}
+    .duty::before{content:'→';color:var(--cyan);font-weight:bold}
     
+    /* DKV Optimized Block */
     .fl-bar{margin-top:32px;border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:32px;position:relative;overflow:hidden}
-    .fl-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+    .fl-label{font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+    .fl-title{font-family:var(--serif);font-size:26px;color:var(--text);font-weight:600}
+    .fl-p{font-size:14px;color:var(--muted-light);line-height:1.7;max-width:680px;margin-top:12px}
 
     /* -- SKILLS -- */
     .sk-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .sk{border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:28px;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
-    .sk:hover{border-color:var(--cyan);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.3)}
-    .sk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .3s}
-    .sk:hover::after{opacity:1}
-    .sk.vv:hover{border-color:var(--violet)}.sk.vv::after{background:linear-gradient(90deg,transparent,var(--violet),transparent)}
-    .sk.gg:hover{border-color:var(--gold)}.sk.gg::after{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-    .sk.gr:hover{border-color:var(--green)}.sk.gr::after{background:linear-gradient(90deg,transparent,var(--green),transparent)}
+    .sk{border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:28px;transition:all .3s;position:relative;overflow:hidden}
+    .sk:hover{border-color:var(--cyan);transform:translateY(-4px)}
     .sk-icon{font-size:28px;margin-bottom:16px}
     .sk-name{font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px}
     .sk-desc{font-size:13.5px;color:var(--muted-light);line-height:1.6;margin-bottom:16px}
     .sk-tags{display:flex;flex-wrap:wrap;gap:6px}
     .stag{font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:4px;color:var(--muted-light);background:var(--bg2);font-weight:500}
     .sc{border-color:var(--cyan-dim)!important;color:var(--cyan)!important;font-weight:600}
-    .sv{border-color:var(--violet-dim)!important;color:var(--violet)!important;font-weight:600}
-    .sg{border-color:var(--gold-dim)!important;color:var(--gold)!important;font-weight:600}
-    .sgr{border-color:var(--green-dim)!important;color:var(--green)!important;font-weight:600}
-    .lbar{margin-top:12px;height:4px;background:var(--border2);border-radius:2px;overflow:hidden}
+    .lbar{margin-top:12px;height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}
     .lfill{height:100%;border-radius:2px;width:0%;transition:width 1.2s ease}
-    .lmeta{font-size:11px;color:var(--muted);margin-top:6px;font-weight:500}
-    .learn-badge{position:absolute;top:16px;right:16px;font-size:10px;font-weight:600;letter-spacing:.1em;
-      color:var(--green);border:1px solid var(--green-dim);border-radius:4px;background:var(--green-dim);padding:3px 8px}
-
-    /* -- JOURNEY MODAL -- */
-    .overlay{position:fixed;inset:0;z-index:500;background:rgba(11, 17, 32, 0.9);backdrop-filter:blur(12px);
-      opacity:0;pointer-events:none;transition:opacity .35s;
-      display:flex;align-items:center;justify-content:center;padding:24px}
-    .overlay.open{opacity:1;pointer-events:all}
-    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:760px;
-      max-height:90vh;overflow-y:auto;position:relative;
-      transform:translateY(24px);transition:transform .35s;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-    .overlay.open .modal{transform:translateY(0)}
-    .mhd{padding:28px 32px 20px;border-bottom:1px solid var(--border);
-      display:flex;align-items:flex-start;justify-content:space-between;
-      position:sticky;top:0;background:var(--bg2);z-index:10}
-    .mhd-title{font-family:var(--serif);font-size:36px;color:var(--text);font-weight:300;line-height:1.1}
-    .mhd-title em{font-style:italic;color:var(--gold)}
-    .mclose{background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);
-      width:40px;height:40px;font-size:20px;cursor:pointer;flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center}
-    .mclose:hover{border-color:var(--cyan);color:var(--cyan);background:var(--cyan-dim)}
-    .mbody{padding:28px 32px 36px}
-    .jt{position:relative;padding-left:32px}
-    .jt::before{content:'';position:absolute;left:4px;top:8px;bottom:0;width:2px;
-      background:linear-gradient(to bottom,var(--cyan),var(--violet),var(--gold),transparent)}
-    .ji{position:relative;margin-bottom:40px}
-    .jdot{position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--cyan);background:var(--bg)}
-    .jdot.f{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
-    .jdot.vv{border-color:var(--violet);background:var(--violet);box-shadow:0 0 12px var(--violet)}
-    .jdot.gg{border-color:var(--gold);background:var(--gold);box-shadow:0 0 12px var(--gold)}
-    .jdot.mm{border-color:var(--muted);border-style:dashed;background:transparent}
-    .jy{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
-    .jr{font-family:var(--serif);font-size:24px;color:var(--text);font-weight:400;margin-bottom:4px}
-    .jo{font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:12px}
-    .jo.gold{color:var(--gold)}.jo.muted{color:var(--muted)}
-    .jdesc{font-size:14.5px;color:var(--muted-light);line-height:1.7}
-    .jtags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 
     /* -- CONTACT -- */
     .contact-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
     .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
     .field label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
-    .field input,.field textarea{background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--sans);font-size:14px;padding:14px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
-    .field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+    .field input,.field textarea{background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--sans);font-size:14px;padding:14px 16px;outline:none;transition:all .2s}
     .field input:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-dim)}
-    .field textarea{resize:vertical;min-height:120px}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .slinks{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-    .slink{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);font-size:13px;border:1px solid var(--border);border-radius:6px;background:var(--surface);padding:14px 18px;transition:all .25s;font-weight:500}
-    .slink:hover{color:var(--cyan);border-color:var(--cyan);background:var(--cyan-dim);transform:translateX(5px)}
-    .slink.gold:hover{color:var(--gold);border-color:var(--gold);background:var(--gold-dim)}
-    .si{font-size:18px;flex-shrink:0}
-    .ci{font-size:15px;color:var(--muted-light);line-height:1.7;margin-bottom:28px}
+    .slink{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);font-size:13px;border:1px solid var(--border);border-radius:6px;background:var(--surface);padding:14px 18px;transition:all .25s;font-weight:500;margin-bottom:12px}
+    .slink:hover{color:var(--cyan);border-color:var(--cyan);transform:translateX(5px)}
     .avbox{padding:20px;border:1px solid var(--green-dim);border-radius:8px;background:var(--green-dim);margin-bottom:32px}
     .avbox strong{display:block;font-size:15px;color:var(--green);margin-bottom:4px;font-weight:600}
-    .avbox p{font-size:13px;color:var(--green);line-height:1.5}
+
+    /* -- MODAL & JOURNEY -- */
+    .overlay{position:fixed;inset:0;z-index:500;background:rgba(11, 17, 32, 0.9);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .35s;display:flex;align-items:center;justify-content:center;padding:24px}
+    .overlay.open{opacity:1;pointer-events:all}
+    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:760px;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(24px);transition:transform .35s}
+    .overlay.open .modal{transform:translateY(0)}
+    .mhd{padding:28px 32px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;position:sticky;top:0;background:var(--bg2);z-index:10}
+    .jt{position:relative;padding-left:32px;margin-top:20px}
+    .jt::before{content:'';position:absolute;left:4px;top:8px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--cyan),var(--violet),var(--gold),transparent)}
+    .ji{position:relative;margin-bottom:40px}
+    .jdot{position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--cyan);background:var(--bg)}
+    .jdot.f{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
 
     /* -- FOOTER -- */
     footer{border-top:1px solid var(--border);background:var(--bg2);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
-    .fl{font-size:12px;color:var(--muted);font-weight:500}.fr{font-size:12px;color:var(--muted);font-weight:500}.fr span{color:var(--cyan);font-weight:600}
 
-    /* -- REVEAL ANIMATION FIX -- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* -- ANIMATION -- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
-    /* -- RESPONSIVE -- */
-    @media(max-width:900px){.hero-grid,.about-g,.exp-g,.contact-g{grid-template-columns:1fr}.sk-g{grid-template-columns:1fr 1fr}.stats-r{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.sk-g{grid-template-columns:1fr}nav{padding:16px 24px}.nav-links{display:none}.stats-r{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.hero-grid,.about-g,.exp-g,.contact-g{grid-template-columns:1fr}.sk-g{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
@@ -309,8 +226,6 @@
 </nav>
 
 <section id="hero">
-  <div class="glow" style="background:rgba(34, 211, 238, 0.04);width:600px;height:600px;top:-150px;left:-200px"></div>
-  <div class="glow" style="background:rgba(167, 139, 250, 0.04);width:400px;height:400px;top:260px;right:-80px"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -320,17 +235,12 @@
         <div class="hroles reveal">
           <span class="rchip on">Community Growth</span>
           <span class="rchip on">Project Expansion</span>
-          <span class="rchip on">Moderator</span>
-          <span class="rchip">DeFi Enthusiast</span>
+          <span class="rchip">Moderator</span>
           <span class="rchip">Trading</span>
-          <span class="rchip">Aspiring Dev</span>
         </div>
-        <p class="hp reveal">
-          5+ years immersed in the crypto and Web3 ecosystem. From mastering DeFi, futures trading, and memecoins, to airdrop hunting - now focused on building and scaling impactful Web3 project communities.
-        </p>
+        <p class="hp reveal">5+ years immersed in the crypto ecosystem. Focused on building and scaling impactful Web3 project communities with a creative touch.</p>
         <div class="btns reveal">
           <a href="#experience" class="btn btn-p">↳ See Experience</a>
-          <a href="#contact" class="btn btn-o">Get In Touch</a>
           <button class="btn btn-j" onclick="openJ()">✦ My Journey</button>
         </div>
       </div>
@@ -338,29 +248,11 @@
       <div class="info-card reveal">
         <div class="ic-title">Quick Facts</div>
         <div class="ic-list">
-          <div class="ic-item">
-            <span class="ic-label">Primary Focus</span>
-            <span class="ic-val"><strong>Community Growth</strong> & Project Expansion</span>
-          </div>
-          <div class="ic-item">
-            <span class="ic-label">Experience</span>
-            <span class="ic-val">Active in Web3 & Crypto since <strong>2021</strong></span>
-          </div>
-          <div class="ic-item">
-            <span class="ic-label">Current Ecosystems</span>
-            <span class="ic-val"><strong>Luxx Coin</strong> (DeFi) & <strong>NeuralTrust</strong> (AI × Web3)</span>
-          </div>
-          <div class="ic-item">
-            <span class="ic-label">Key Expertise</span>
-            <span class="ic-val">Community Strategy, Trading, On-chain Research</span>
-          </div>
-          <div class="ic-item">
-            <span class="ic-label">Creative Tools</span>
-            <span class="ic-val">Photoshop, Illustrator, Premiere Pro</span>
-          </div>
+          <div class="ic-item"><span class="ic-label">Primary Focus</span><span class="ic-val"><strong>Community Growth</strong> & Expansion</span></div>
+          <div class="ic-item"><span class="ic-label">Experience</span><span class="ic-val">Active in Web3 since <strong>2021</strong></span></div>
+          <div class="ic-item"><span class="ic-label">Creative Tools</span><span class="ic-val">PS, AI, Premiere Pro, Excel</span></div>
         </div>
       </div>
-      
     </div>
   </div>
 </section>
@@ -371,40 +263,17 @@
     <div class="stitle reveal">Who I <em>Am</em></div>
     <div class="about-g">
       <div class="about-text reveal">
-        <p>I am a <strong>Web3 native</strong> who has been active in the crypto ecosystem since 2021. My journey began with a deep dive into how blockchain works - from DeFi mechanics and liquidity pools to spot and futures trading strategies.</p>
-        <p>Currently working as <strong>Community Growth & Project Expansion</strong> at Luxx Coin and Assistant Community Growth at Lumint - organically building communities, maintaining engagement, and expanding project reach to broader markets.</p>
-        <p>Beyond community work, I possess creative skills in <strong>Adobe Photoshop, Illustrator, and Premiere Pro</strong>. I am also currently pursuing a path as a <strong>Fullstack Developer</strong> to become a more comprehensive builder.</p>
+        <p>I am a <strong>Web3 native</strong> who has been active in the crypto ecosystem since 2021. My journey began with a deep dive into how blockchain works - dari DeFi mechanics hingga on-chain research.</p>
+        <p>Saat ini berfokus sebagai <strong>Community Growth</strong>, membangun komunitas secara organik dan menjaga engagement yang berkelanjutan untuk proyek-proyek Web3 masa depan.</p>
         <div class="stats-r reveal">
           <div class="stat"><div class="stat-n">2021</div><div class="stat-l">In Crypto</div></div>
           <div class="stat"><div class="stat-n">5+</div><div class="stat-l">Years Active</div></div>
-          <div class="stat"><div class="stat-n">2</div><div class="stat-l">Active Roles</div></div>
-          <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Still Learning</div></div>
         </div>
       </div>
       <div class="eco-g reveal">
-        <div>
-          <div class="eco-lbl">DeFi & Finance</div>
-          <div class="eco-tags">
-            <span class="etag ec">DeFi</span><span class="etag ec">Spot Trading</span><span class="etag ec">Futures</span><span class="etag ec">Yield Farming</span><span class="etag ec">Staking</span><span class="etag ec">Liquidity</span>
-          </div>
-        </div>
-        <div>
-          <div class="eco-lbl">On-chain Activities</div>
-          <div class="eco-tags">
-            <span class="etag ev">Airdrops</span><span class="etag ev">Testnet</span><span class="etag ev">NFT</span><span class="etag ev">DAO</span><span class="etag ev">Governance</span>
-          </div>
-        </div>
-        <div>
-          <div class="eco-lbl">Markets</div>
-          <div class="eco-tags">
-            <span class="etag eg">Memecoin</span><span class="etag eg">Altcoin Research</span><span class="etag eg">Market Analysis</span><span class="etag eg">On-chain Data</span>
-          </div>
-        </div>
-        <div>
-          <div class="eco-lbl">Chains Explored</div>
-          <div class="eco-tags">
-            <span class="etag em">Ethereum</span><span class="etag em">Solana</span><span class="etag em">BNB Chain</span><span class="etag em">Arbitrum</span><span class="etag em">Base</span><span class="etag em">Polygon</span>
-          </div>
+        <div class="eco-lbl">Expertise</div>
+        <div class="eco-tags">
+          <span class="etag ec">DeFi</span><span class="etag eg">Trading</span><span class="etag ev">Airdrops</span><span class="etag em">Communities</span>
         </div>
       </div>
     </div>
@@ -416,73 +285,38 @@
     <div class="seye reveal">02 - Experience</div>
     <div class="stitle reveal">Where I <em>Work</em></div>
     <div class="exp-g">
-
       <div class="exp-c reveal">
         <div class="exp-top">
           <div class="exp-badge ebc">⬡ Current · Full-time</div>
-          <div class="exp-period">2025 - Present</div>
-          <div class="exp-title">Community Growth &<br/>Project Expansion</div>
+          <div class="exp-title">Community Growth</div>
           <div class="exp-org">Luxx Coin</div>
-          <div class="exp-desc">Responsible for community growth, project expansion into broader markets, and maintaining interaction quality as a moderator across all official Luxx Coin channels.</div>
-          <div class="duties">
-            <div class="duty">Building & growing communities organically</div>
-            <div class="duty">Designing expansion strategies for new target audiences</div>
-            <div class="duty">Moderating community channels & maintaining discussion quality</div>
-            <div class="duty">Coordinating campaigns, events, and cross-project collaborations</div>
-            <div class="duty">Monitoring sentiment & community feedback management</div>
-          </div>
+          <div class="exp-desc">Managing organic growth and maintaining high-quality interaction across all channels.</div>
+          <div class="duty">Building & growing communities organically</div>
+          <div class="duty">Monitoring community sentiment & feedback</div>
         </div>
-        <div class="exp-roles-row">
-          <span class="rc">Community Growth</span><span class="rc">Project Expansion</span><span class="rc">Moderator</span>
-        </div>
-        <div class="exp-bot">
-          <a href="https://luxxcoin.io" target="_blank" class="elink">🌐 luxxcoin.io</a>
-          <a href="https://x.com/Luxx_Coin" target="_blank" class="elink">𝕏 @Luxx_Coin</a>
-        </div>
+        <div class="exp-bot"><a href="https://luxxcoin.io" target="_blank" class="elink">🌐 luxxcoin.io</a></div>
       </div>
 
       <div class="exp-c ga reveal">
         <div class="exp-top">
           <div class="exp-badge ebg">✦ Current · Part-time</div>
-          <div class="exp-period">2026 - Present</div>
-          <div class="exp-title">Assistant<br/>Community Growth</div>
+          <div class="exp-title">Assistant Growth</div>
           <div class="exp-org gold">Lumint · NeuralTrust</div>
-          <div class="exp-desc">Supporting Lumint's community growth team in developing the user ecosystem, expanding community reach, and ensuring sustainable growth in the AI × Web3 space.</div>
-          <div class="duties">
-            <div class="duty">Assisting Lumint's community growth strategies</div>
-            <div class="duty">User engagement & new user onboarding</div>
-            <div class="duty">Research and analysis in the AI + Web3 space</div>
-            <div class="duty">Supporting awareness campaigns & partnerships</div>
-          </div>
+          <div class="exp-desc">Supporting community reach in the AI × Web3 space.</div>
+          <div class="duty">User engagement & onboarding</div>
+          <div class="duty">Research in AI + Web3 space</div>
         </div>
-        <div class="exp-roles-row">
-          <span class="rc">Asst. Community Growth</span><span class="rc">AI × Web3</span>
-        </div>
-        <div class="exp-bot">
-          <a href="https://www.neuraltrust.io/" target="_blank" class="elink gh">🌐 neuraltrust.io</a>
-          <a href="https://x.com/Lumint_official" target="_blank" class="elink gh">𝕏 @Lumint_official</a>
-        </div>
+        <div class="exp-bot"><a href="https://www.neuraltrust.io/" target="_blank" class="elink">🌐 neuraltrust.io</a></div>
       </div>
     </div>
 
     <div class="fl-bar reveal">
-      <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px">
-        <span style="font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--muted);text-transform:uppercase">2021 - 2025</span>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span class="fl-label">2021 - 2025</span>
         <span style="width:1px;height:14px;background:var(--border)"></span>
-        <span style="font-family:var(--serif);font-size:22px;color:var(--text);font-weight:400">Self-learning & Independent Explorer</span>
+        <span class="fl-title">Self-learning & Independent Explorer</span>
       </div>
-      <p style="font-size:14px;color:var(--muted-light);line-height:1.7;max-width:750px">
-        The period where I independently built my Web3 knowledge foundation - studying DeFi, participating in hundreds of testnets and airdrop campaigns, actively trading spot and futures, and establishing a presence in various crypto communities.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-        <span class="etag em">Self-taught</span>
-        <span class="etag ec">DeFi Research</span>
-        <span class="etag ec">Testnet</span>
-        <span class="etag eg">Airdrop Hunting</span>
-        <span class="etag ev">Community Building</span>
-        <span class="etag em">Futures Trading</span>
-        <span class="etag eg">Memecoin</span>
-      </div>
+      <p class="fl-p">The period where I independently built my Web3 knowledge foundation - studying DeFi, testnets, and establishing a presence in various communities.</p>
     </div>
   </div>
 </section>
@@ -492,81 +326,25 @@
     <div class="seye reveal">03 - Skills</div>
     <div class="stitle reveal">What I <em>Bring</em></div>
     <div class="sk-g">
-
       <div class="sk reveal">
         <div class="sk-icon">👥</div>
         <div class="sk-name">Community Growth</div>
-        <div class="sk-desc">Building, growing, and retaining Web3 communities organically, from strategy to daily engagement campaign execution.</div>
-        <div class="sk-tags"><span class="stag sc">Moderation</span><span class="stag sc">Engagement</span><span class="stag sc">Campaigns</span><span class="stag sc">Discord/TG</span></div>
+        <div class="sk-desc">Building and retaining Web3 communities organically.</div>
+        <div class="sk-tags"><span class="stag sc">Moderation</span><span class="stag sc">Discord</span></div>
       </div>
-
       <div class="sk reveal">
-        <div class="sk-icon">🔗</div>
-        <div class="sk-name">Web3 Expertise</div>
-        <div class="sk-desc">5+ years active in the crypto ecosystem. Deep understanding of DeFi, tokenomics, on-chain mechanics, and market dynamics.</div>
-        <div class="sk-tags"><span class="stag sc">DeFi</span><span class="stag sc">Trading</span><span class="stag sg">Memecoin</span><span class="stag sv">Airdrops</span><span class="stag sv">Testnet</span></div>
-      </div>
-
-      <div class="sk reveal">
-        <div class="sk-icon">🚀</div>
-        <div class="sk-name">Project Expansion</div>
-        <div class="sk-desc">Designing and executing Web3 project growth strategies - from onboarding new users to building strategic partnerships.</div>
-        <div class="sk-tags"><span class="stag sc">Strategy</span><span class="stag sc">Partnerships</span><span class="stag sc">GTM</span><span class="stag">BD</span></div>
-      </div>
-
-      <div class="sk vv reveal">
         <div class="sk-icon">🎨</div>
-        <div class="sk-name">Adobe Photoshop</div>
-        <div class="sk-desc">Graphic design for community content, banners, social media assets, and Web3 project visual branding.</div>
-        <div class="sk-tags"><span class="stag sv">Photo Editing</span><span class="stag sv">Compositing</span><span class="stag sv">Social Assets</span></div>
-        <div class="lbar"><div class="lfill" style="background:var(--violet)" data-w="72"></div></div>
-        <div class="lmeta">Advanced · Actively deepening</div>
+        <div class="sk-name">Adobe Suite</div>
+        <div class="sk-desc">Graphic design and video editing for social assets.</div>
+        <div class="lbar"><div class="lfill" style="background:var(--violet)" data-w="70"></div></div>
       </div>
-
-      <div class="sk vv reveal">
-        <div class="sk-icon">✏️</div>
-        <div class="sk-name">Adobe Illustrator</div>
-        <div class="sk-desc">Logos, icon sets, vector illustrations, and visual identities for projects and communities. Continuously deepening my skills.</div>
-        <div class="sk-tags"><span class="stag sv">Vector</span><span class="stag sv">Logo Design</span><span class="stag sv">Brand Identity</span></div>
-        <div class="lbar"><div class="lfill" style="background:var(--violet)" data-w="65"></div></div>
-        <div class="lmeta">Intermediate-Advanced · Deepening</div>
-      </div>
-
-      <div class="sk vv reveal">
-        <div class="sk-icon">🎬</div>
-        <div class="sk-name">Premiere Pro</div>
-        <div class="sk-desc">Video editing for Web3 educational content, event recaps, short-form content, and project campaign videos.</div>
-        <div class="sk-tags"><span class="stag sv">Video Editing</span><span class="stag sv">Short-form</span><span class="stag sv">Motion</span></div>
-        <div class="lbar"><div class="lfill" style="background:var(--violet)" data-w="62"></div></div>
-        <div class="lmeta">Intermediate+ · Actively deepening</div>
-      </div>
-
-      <div class="sk gg reveal">
-        <div class="sk-icon">📊</div>
-        <div class="sk-name">Microsoft Excel</div>
-        <div class="sk-desc">Community data analysis, growth metrics tracking, portfolio tracking, and reporting for project management.</div>
-        <div class="sk-tags"><span class="stag sg">Data Analysis</span><span class="stag sg">Reporting</span><span class="stag sg">Pivot Table</span></div>
-        <div class="lbar"><div class="lfill" style="background:var(--gold)" data-w="70"></div></div>
-        <div class="lmeta">Intermediate-Advanced</div>
-      </div>
-
-      <div class="sk gr reveal" style="border-style:dashed;border-color:var(--border2)">
+      <div class="sk reveal" style="border-style:dashed">
         <div class="learn-badge">LEARNING</div>
         <div class="sk-icon">💻</div>
-        <div class="sk-name">Fullstack Development</div>
-        <div class="sk-desc">Currently diving deep into frontend and backend development with the goal of building dApps and Web3 tools independently.</div>
-        <div class="sk-tags"><span class="stag sgr">HTML/CSS</span><span class="stag sgr">JavaScript</span><span class="stag sgr">React</span><span class="stag sgr">Node.js</span><span class="stag">Web3.js</span></div>
-        <div class="lbar"><div class="lfill" style="background:var(--green)" data-w="28"></div></div>
-        <div class="lmeta">In Progress - Journey started</div>
+        <div class="sk-name">Fullstack Dev</div>
+        <div class="sk-desc">Currently learning to build dApps independently.</div>
+        <div class="lbar"><div class="lfill" style="background:var(--green)" data-w="30"></div></div>
       </div>
-
-      <div class="sk reveal">
-        <div class="sk-icon">📢</div>
-        <div class="sk-name">Content & Social</div>
-        <div class="sk-desc">Creating educational content, threads, and visual materials to spread project awareness on X, Telegram, and Discord.</div>
-        <div class="sk-tags"><span class="stag sc">X Threads</span><span class="stag">Telegram</span><span class="stag">Discord</span><span class="stag sv">Copywriting</span></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -577,134 +355,50 @@
     <div class="stitle reveal">Let's <em>Connect</em></div>
     <div class="contact-g">
       <div class="reveal">
-        <div class="avbox">
-          <strong>🟢 Available for Opportunities</strong>
-          <p>Open for new Web3 roles, collaborations, and project partnerships.</p>
-        </div>
-        <p class="ci">Have a project that needs an experienced community builder, or want to collaborate in the Web3 ecosystem? Reach out to me.</p>
-        <div class="slinks">
-          <a href="https://x.com/slametgendul" target="_blank" class="slink"><span class="si">𝕏</span><span>@slametgendul <span style="font-size:11px;color:var(--muted);font-weight:400">(Personal)</span></span></a>
-          <a href="https://t.me/ErenLuxx" target="_blank" class="slink"><span class="si">💬</span><span>t.me/ErenLuxx <span style="font-size:11px;color:var(--muted);font-weight:400">(Telegram)</span></span></a>
-          <a href="https://discord.com/users/977835964909096960" target="_blank" class="slink"><span class="si">🎮</span><span>ErenLuxx <span style="font-size:11px;color:var(--muted);font-weight:400">(Discord)</span></span></a>
-          <a href="https://x.com/Luxx_Coin" target="_blank" class="slink"><span class="si">𝕏</span><span>@Luxx_Coin <span style="font-size:11px;color:var(--muted);font-weight:400">(Work)</span></span></a>
-          <a href="https://x.com/Lumint_official" target="_blank" class="slink gold"><span class="si">𝕏</span><span>@Lumint_official <span style="font-size:11px;color:var(--muted);font-weight:400">(Work)</span></span></a>
-          <a href="https://luxxcoin.io" target="_blank" class="slink"><span class="si">🌐</span><span>luxxcoin.io</span></a>
-          <a href="https://www.neuraltrust.io/" target="_blank" class="slink gold"><span class="si">🌐</span><span>neuraltrust.io (Lumint)</span></a>
-        </div>
+        <div class="avbox"><strong>🟢 Open for Opportunities</strong><p>Available for Web3 roles and collaborations.</p></div>
+        <a href="https://t.me/ErenLuxx" target="_blank" class="slink">💬 t.me/ErenLuxx</a>
+        <a href="https://x.com/slametgendul" target="_blank" class="slink">𝕏 @slametgendul</a>
       </div>
       <div class="reveal">
         <div class="frow">
           <div class="field"><label>Name</label><input type="text" placeholder="Your name"/></div>
-          <div class="field"><label>Telegram / X</label><input type="text" placeholder="@handle"/></div>
+          <div class="field"><label>Handle</label><input type="text" placeholder="@handle"/></div>
         </div>
-        <div class="field"><label>Email</label><input type="email" placeholder="you@example.com"/></div>
-        <div class="field"><label>Subject</label><input type="text" placeholder="Collab / Job Offer / Partnership"/></div>
         <div class="field"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-        <button class="btn btn-p" style="width:100%;justify-content:center"
-          onclick="this.textContent='✓ Sent! Will reach out soon';this.style.background='#4ADE80';this.style.borderColor='#4ADE80';this.style.color='#0B1120'">
-          ↳ Send Message
-        </button>
+        <button class="btn btn-p" style="width:100%;justify-content:center" onclick="this.textContent='✓ Sent!'">↳ Send Message</button>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="fl">© 2026 Slamet Santoso · Web3 Community Builder</div>
-  <div class="fr">In crypto since <span>2021</span> · Building in public</div>
+  <div class="fl">© 2026 Slamet Santoso</div>
+  <div class="fr">In crypto since <span>2021</span></div>
 </footer>
 
 <div class="overlay" id="jModal" onclick="closeJOuter(event)">
-  <div class="modal" id="mBox">
+  <div class="modal">
     <div class="mhd">
-      <div>
-        <div style="font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase;margin-bottom:8px">My Story</div>
-        <div class="mhd-title">The <em>Journey</em></div>
-      </div>
+      <div><div style="font-size:11px;font-weight:600;color:var(--cyan);text-transform:uppercase">My Story</div><div class="mhd-title">The <em>Journey</em></div></div>
       <button class="mclose" onclick="closeJ()">✕</button>
     </div>
     <div class="mbody">
       <div class="jt">
-
-        <div class="ji">
-          <div class="jdot f"></div>
-          <div class="jy">2021 - The Beginning</div>
-          <div class="jr">Down the Rabbit Hole</div>
-          <div class="jo">Self-learning · Crypto Entry</div>
-          <div class="jdesc">First introduction to the crypto and blockchain world. Started understanding how Bitcoin and Ethereum work, then dove deeper into the DeFi ecosystem - liquidity pools, yield farming, DEX vs CEX. The phase where curiosity conquered everything.</div>
-          <div class="jtags"><span class="etag ec">Bitcoin</span><span class="etag ec">Ethereum</span><span class="etag em">CEX Trading</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot f"></div>
-          <div class="jy">2022 - DeFi Summer & Winter</div>
-          <div class="jr">On-chain Deep Dive</div>
-          <div class="jo">DeFi Active Participation</div>
-          <div class="jdesc">Actively participated in the DeFi ecosystem - staking, yield farming, LP provision. Experienced market volatility firsthand, learned from the 2022 bear market. Began consistently joining testnets and airdrop campaigns. Started studying spot and futures trading seriously.</div>
-          <div class="jtags"><span class="etag ec">DeFi</span><span class="etag ev">Testnet</span><span class="etag eg">Futures Trading</span><span class="etag em">Bear Market Lessons</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot f"></div>
-          <div class="jy">2023 - Finding the Niche</div>
-          <div class="jr">Community & Memecoin Era</div>
-          <div class="jo">Web3 Communities · Airdrop Hunting</div>
-          <div class="jdesc">Started actively contributing to various Web3 communities and found a passion for community building. Actively engaged in systematic airdrop hunting and deeply studied the memecoin ecosystem.</div>
-          <div class="jtags"><span class="etag ec">Community</span><span class="etag eg">Memecoin</span><span class="etag ev">Airdrops</span><span class="etag em">Discord Mod</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot vv"></div>
-          <div class="jy">2024 - Creative Expansion</div>
-          <div class="jr">Design Skills & Tools</div>
-          <div class="jo">Adobe Creative Suite · Excel</div>
-          <div class="jdesc">Began seriously learning the Adobe Creative Suite to support community content. Photoshop, Illustrator, and Premiere Pro became daily toolkits. Excel was used for portfolio tracking and community data analysis.</div>
-          <div class="jtags"><span class="etag ev">Photoshop</span><span class="etag ev">Illustrator</span><span class="etag ev">Premiere Pro</span><span class="etag eg">Excel Analytics</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot gg"></div>
-          <div class="jy">2025 - Professional Chapter</div>
-          <div class="jr">Community Growth @ Luxx Coin</div>
-          <div class="jo" style="color:var(--cyan)">luxxcoin.io · <a href="https://x.com/Luxx_Coin" target="_blank" style="color:var(--cyan)">@Luxx_Coin</a></div>
-          <div class="jdesc">Joined Luxx Coin professionally as Community Growth, Project Expansion, and Moderator. Fully responsible for growth strategies, project expansion, and interaction quality across all official channels.</div>
-          <div class="jtags"><span class="etag ec">Community Growth</span><span class="etag ec">Project Expansion</span><span class="etag ec">Moderator</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot gg"></div>
-          <div class="jy">2026 - Expanding Horizons</div>
-          <div class="jr">Asst. Community Growth @ Lumint</div>
-          <div class="jo gold"><a href="https://www.neuraltrust.io/" target="_blank" style="color:var(--gold)">neuraltrust.io</a> · <a href="https://x.com/Lumint_official" target="_blank" style="color:var(--gold)">@Lumint_official</a></div>
-          <div class="jdesc">Joined Lumint (NeuralTrust) as Assistant Community Growth in an ecosystem blending AI and Web3. Simultaneously began studying Fullstack Development to become a more well-rounded builder.</div>
-          <div class="jtags"><span class="etag eg">Lumint</span><span class="etag eg">AI × Web3</span><span class="etag" style="border-color:var(--green-dim);color:var(--green);background:var(--green-dim)">Learning: Fullstack</span></div>
-        </div>
-
-        <div class="ji">
-          <div class="jdot mm"></div>
-          <div class="jy">Next Chapter - ???</div>
-          <div class="jr" style="color:var(--muted-light);font-style:italic">Still Writing...</div>
-          <div class="jo muted">The future is on-chain</div>
-          <div class="jdesc">Continuously building skills, expanding networks, and contributing to the Web3 ecosystem. Long-term goal: becoming a Fullstack Web3 Developer who also deeply understands community and growth.</div>
-          <div class="jtags"><span class="etag em">Fullstack Dev</span><span class="etag em">dApp Builder</span><span class="etag em">Web3 Native</span></div>
-        </div>
-
+        <div class="ji"><div class="jdot f"></div><div class="jy">2021</div><div class="jr">Down the Rabbit Hole</div><div class="jdesc">First introduction to Bitcoin, Ethereum, and the DeFi ecosystem.</div></div>
+        <div class="ji"><div class="jdot"></div><div class="jy">2025</div><div class="jr">Professional Entry</div><div class="jdesc">Joining Luxx Coin as Community Growth and expansion lead.</div></div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  // 1. REVEAL ANIMATION 
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 50;
-      if (elementTop < windowHeight - elementVisible) {
+      if (elementTop < windowHeight - 50) {
         reveals[i].classList.add("active");
-        
         var bars = reveals[i].querySelectorAll('.lfill[data-w]');
         bars.forEach(b => b.style.width = b.dataset.w + '%');
       }
@@ -713,29 +407,25 @@
   window.addEventListener("scroll", reveal);
   setTimeout(reveal, 100);
 
-  // 2. CURSOR ANIMATION
-  try {
-    const dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function ac() {
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(ac);
-    }
-    ac();
-  } catch (e) { console.log("Cursor script error"); }
+  const dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function ac() {
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(ac);
+  }
+  ac();
 
-  // 3. BACKGROUND PARTICLES 
   try {
     const cv = document.getElementById('bgCanvas'), cx = cv.getContext('2d');
     function rs() { cv.width = innerWidth; cv.height = innerHeight; }
     rs(); window.addEventListener('resize', rs);
-    const pts = Array.from({length: 60}, () => ({
+    const pts = Array.from({length: 50}, () => ({
       x: Math.random() * innerWidth, y: Math.random() * innerHeight,
-      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
-      r: Math.random() * 1.4 + .4, o: Math.random() * .4 + .15
+      vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+      r: Math.random() * 1.2 + .4, o: Math.random() * .3 + .1
     }));
     function draw() {
       cx.clearRect(0, 0, cv.width, cv.height);
@@ -743,47 +433,16 @@
         p.x += p.vx; p.y += p.vy; 
         if(p.x < 0) p.x = cv.width; if(p.x > cv.width) p.x = 0; 
         if(p.y < 0) p.y = cv.height; if(p.y > cv.height) p.y = 0; 
-      });
-      pts.forEach((a, i) => {
-        pts.slice(i + 1).forEach(b => {
-          const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < 130) { 
-            cx.beginPath(); 
-            cx.strokeStyle = `rgba(34,211,238,${.10 * (1 - d / 130)})`; 
-            cx.lineWidth = .5; cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); 
-          }
-        });
-        cx.beginPath(); cx.fillStyle = `rgba(34,211,238,${a.o})`; cx.arc(a.x, a.y, a.r, 0, Math.PI * 2); cx.fill();
+        cx.beginPath(); cx.fillStyle = `rgba(34,211,238,${p.o})`; cx.arc(p.x, p.y, p.r, 0, Math.PI * 2); cx.fill();
       });
       requestAnimationFrame(draw);
     }
     draw();
-  } catch (e) { 
-    console.log("Particles blocked by browser."); 
-  }
+  } catch (e) { console.log("Canvas blocked"); }
 
-  // 4. NAV ACTIVE STATE & MODAL
-  try {
-    const secs = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY + 130;
-      secs.forEach(s => {
-        const l = document.querySelector(`nav a[href="#${s.id}"]`);
-        if (l) {
-          if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
-            l.classList.add('act');
-          } else {
-            l.classList.remove('act');
-          }
-        }
-      });
-    });
-
-    function openJ() { document.getElementById('jModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeJ() { document.getElementById('jModal').classList.remove('open'); document.body.style.overflow = ''; }
-    function closeJOuter(e) { if (e.target === document.getElementById('jModal')) closeJ(); }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeJ(); });
-  } catch (e) { console.log("Nav script error"); }
+  function openJ() { document.getElementById('jModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeJ() { document.getElementById('jModal').classList.remove('open'); document.body.style.overflow = ''; }
+  function closeJOuter(e) { if (e.target.classList.contains('overlay')) closeJ(); }
 </script>
 </body>
 </html>

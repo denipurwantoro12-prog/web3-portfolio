@@ -304,7 +304,6 @@
   }
   .idc-val.cyan { color:var(--cyan); }
   .idc-val.gold  { color:var(--gold); }
-  .idc-val.green { color:var(--green); }
 
   /* Card footer */
   .idc-foot {
@@ -461,8 +460,6 @@
   .sk-card.vio::after { background:linear-gradient(90deg,transparent,var(--violet),transparent); }
   .sk-card.gld:hover { border-color:var(--gold); }
   .sk-card.gld::after { background:linear-gradient(90deg,transparent,var(--gold),transparent); }
-  .sk-card.grn:hover { border-color:var(--green); }
-  .sk-card.grn::after { background:linear-gradient(90deg,transparent,var(--green),transparent); }
 
   .sk-icon  { font-size:28px; margin-bottom:var(--sp-2); }
   .sk-name  { font-size:18px; font-weight:600; color:var(--text); margin-bottom:8px; }
@@ -472,19 +469,12 @@
   .sc { border-color:var(--cyan-10)!important;   color:var(--cyan)!important; font-weight:600; }
   .sv { border-color:var(--violet-10)!important; color:var(--violet)!important; font-weight:600; }
   .sg { border-color:var(--gold-10)!important;   color:var(--gold)!important; font-weight:600; }
-  .sgr{ border-color:var(--green-10)!important;  color:var(--green)!important; font-weight:600; }
 
   /* Progress bar */
   .prog-wrap { margin-top:var(--sp-2); }
   .prog-track { height:4px; border-radius:2px; background:var(--bg2); margin-bottom:6px; overflow:hidden;}
   .prog-fill  { height:100%; border-radius:2px; width:0%; transition:width 1.4s cubic-bezier(.22,1,.36,1); }
   .prog-meta  { font-size:12px; font-weight:500; color:var(--muted); }
-  .learning-badge {
-    position:absolute; top:var(--sp-2); right:var(--sp-2);
-    font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--green); border:1px solid var(--green-10); border-radius:4px; background:var(--green-10);
-    padding:3px 8px;
-  }
 
   /* ════════════════════════════════
      JOURNEY MODAL
@@ -649,7 +639,6 @@
           <span class="chip on">Moderator</span>
           <span class="chip">DeFi Enthusiast</span>
           <span class="chip">Trader</span>
-          <span class="chip">Aspiring Developer</span>
         </div>
         <p class="hero-lead rev">
           Over four years immersed in the decentralised web: from DeFi mechanics and
@@ -711,10 +700,6 @@
             <span class="idc-key">Creative</span>
             <span class="idc-val">Photoshop · Illustrator · Premiere · Excel</span>
           </div>
-          <div class="idc-row">
-            <span class="idc-key">Learning</span>
-            <span class="idc-val green">Fullstack Development</span>
-          </div>
         </div>
 
         <div class="idc-foot">
@@ -751,8 +736,7 @@
         <p>
           Beyond community work, I bring a strong <strong>visual communication skillset</strong>
           across Adobe Photoshop, Illustrator, and Premiere Pro, complemented by advanced
-          data management in Excel. I am currently deepening all of these disciplines
-          alongside a structured path toward <strong>Fullstack Development</strong>.
+          data management in Excel. I am currently deepening all of these disciplines to further support Web3 projects.
         </p>
         <div class="stats-row rev">
           <div class="stat"><div class="stat-n">2021</div><div class="stat-l">Since</div></div>
@@ -972,21 +956,6 @@
         </div>
       </div>
 
-      <div class="sk-card vio rev">
-        <div class="sk-icon">🎬</div>
-        <div class="sk-name">Premiere Pro</div>
-        <div class="sk-desc">Video editing for Web3 educational content, community event recaps, short-form social media clips, and project campaign videos.</div>
-        <div class="sk-tags">
-          <span class="stag sv">Video Editing</span>
-          <span class="stag sv">Short-form</span>
-          <span class="stag sv">Post-production</span>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-track"><div class="prog-fill" style="background:var(--violet)" data-w="62"></div></div>
-          <div class="prog-meta">Intermediate+ · Continuously deepening</div>
-        </div>
-      </div>
-
       <div class="sk-card gld rev">
         <div class="sk-icon">📊</div>
         <div class="sk-name">Microsoft Excel</div>
@@ -999,36 +968,6 @@
         <div class="prog-wrap">
           <div class="prog-track"><div class="prog-fill" style="background:var(--gold)" data-w="70"></div></div>
           <div class="prog-meta">Intermediate–Advanced</div>
-        </div>
-      </div>
-
-      <div class="sk-card grn rev" style="border-style:dashed;border-color:var(--border2);">
-        <div class="learning-badge">In Progress</div>
-        <div class="sk-icon">💻</div>
-        <div class="sk-name">Fullstack Development</div>
-        <div class="sk-desc">Structured study of frontend and backend engineering, with the long-term goal of building decentralised applications and Web3 tools independently.</div>
-        <div class="sk-tags">
-          <span class="stag sgr">HTML / CSS</span>
-          <span class="stag sgr">JavaScript</span>
-          <span class="stag sgr">React</span>
-          <span class="stag sgr">Node.js</span>
-          <span class="stag">Web3.js</span>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-track"><div class="prog-fill" style="background:var(--green)" data-w="28"></div></div>
-          <div class="prog-meta">Foundations · Active learner</div>
-        </div>
-      </div>
-
-      <div class="sk-card rev">
-        <div class="sk-icon">📢</div>
-        <div class="sk-name">Content &amp; Social Media</div>
-        <div class="sk-desc">Crafting educational threads, written communications, and visual content to drive project awareness across X, Telegram, and Discord.</div>
-        <div class="sk-tags">
-          <span class="stag sc">X Threads</span>
-          <span class="stag">Telegram</span>
-          <span class="stag">Discord</span>
-          <span class="stag sv">Copywriting</span>
         </div>
       </div>
 
@@ -1059,7 +998,7 @@
           </a>
           <a href="https://discord.com/users/977835964909096960" target="_blank" class="soc-a">
             <span class="soc-icon">🎮</span>
-            <span>slametgendul<span style="color:var(--muted);font-size:12px;font-weight:400;"> (Discord)</span></span>
+            <span>ErenLuxx <span style="color:var(--muted);font-size:12px;font-weight:400;"> (Discord)</span></span>
           </a>
           <a href="https://x.com/Luxx_Coin" target="_blank" class="soc-a">
             <span class="soc-icon">𝕏</span>
@@ -1227,14 +1166,11 @@
           <div class="jo gold"><a href="https://www.neuraltrust.io/" target="_blank" style="color:var(--gold);text-decoration:none;">neuraltrust.io</a> · <a href="https://x.com/Lumint_official" target="_blank" style="color:var(--gold);text-decoration:none;">@Lumint_official</a></div>
           <div class="jdesc">
             Joined Lumint (NeuralTrust) as Assistant Community Growth at the frontier of
-            AI and Web3. Simultaneously commenced a structured programme of Fullstack
-            Development, with the ambition of becoming an independent builder of
-            decentralised applications.
+            AI and Web3.
           </div>
           <div class="jtags">
             <span class="etag eg">Lumint</span>
             <span class="etag eg">AI × Web3</span>
-            <span class="etag" style="border-color:var(--green-10);color:var(--green);background:var(--green-10);">Fullstack Study</span>
           </div>
         </div>
 
@@ -1244,13 +1180,11 @@
           <div class="jr" style="color:var(--muted);font-style:italic;">Still in progress…</div>
           <div class="jo muted">The future is on-chain</div>
           <div class="jdesc" style="color:#64748B;">
-            The long-term vision: a Fullstack Web3 Developer who understands community
-            and growth at a deep level. Building one commit, one campaign, one community at a time.
+            The long-term vision: A Web3 Community Lead who understands project growth at a deep level. Building one campaign, one community at a time.
           </div>
           <div class="jtags">
-            <span class="etag em">Fullstack Dev</span>
-            <span class="etag em">dApp Builder</span>
             <span class="etag em">Web3 Native</span>
+            <span class="etag em">Community</span>
           </div>
         </div>
 

@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Slamet Santoso | Web3 Community Builder & Expansion Lead</title>
 
-  <!-- Google Fonts: Inter, Cormorant Garamond, & JetBrains Mono -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 
   <style>
-    /* ═══════════════════════════════════════════════
-       DESIGN TOKENS — High Contrast Web3 Native
-       ═══════════════════════════════════════════════ */
     :root {
       --bg:        #080D1A;
       --bg2:       #0F172A;
       --surface:   rgba(30, 41, 59, 0.7);
-      --surface-hover: rgba(51, 65, 85, 0.8);
       --border:    rgba(255, 255, 255, 0.08);
       --border2:   rgba(255, 255, 255, 0.15);
 
@@ -444,9 +440,8 @@
     .jdesc { font-size: 14px; color: var(--text-2); line-height: 1.6; }
     .jtags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 
-    /* SCROLL REVEAL */
-    .rev { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .rev.in { opacity: 1; transform: none; }
+    /* PENTING: .rev diset opacity: 1 secara default agar konten SELALU TAMPIL */
+    .rev { opacity: 1; transform: none; transition: opacity .7s ease, transform .7s ease; }
 
     /* RESPONSIVE */
     @media(max-width: 960px) {
@@ -1061,4 +1056,41 @@
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if(d < 120) {
             cx.beginPath();
-            cx.strokeStyle = `rgba(3
+            cx.strokeStyle = `rgba(34,211,238,${.08 * (1 - d/120)})`;
+            cx.lineWidth = .5;
+            cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
+          }
+        });
+        cx.beginPath();
+        cx.fillStyle = `rgba(34,211,238,${a.o})`;
+        cx.arc(a.x, a.y, a.r, 0, Math.PI * 2); cx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    /* PROGRESS BAR ANIMATION */
+    setTimeout(() => {
+      document.querySelectorAll('.prog-fill[data-w]').forEach(b => {
+        b.style.width = b.dataset.w + '%';
+      });
+    }, 500);
+
+    /* NAVIGATION ACTIVE HIGHLIGHT */
+    const secs = document.querySelectorAll('section[id]');
+    addEventListener('scroll', () => {
+      const y = scrollY + 140;
+      secs.forEach(s => {
+        const link = document.querySelector(`nav a[href="#${s.id}"]`);
+        if(link) link.classList.toggle('act', y >= s.offsetTop && y < s.offsetTop + s.offsetHeight);
+      });
+    });
+
+    /* JOURNEY MODAL CONTROLS */
+    function openJ() { document.getElementById('jModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeJ() { document.getElementById('jModal').classList.remove('open'); document.body.style.overflow = ''; }
+    function closeJOut(e) { if(e.target === document.getElementById('jModal')) closeJ(); }
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeJ(); });
+  </script>
+</body>
+</html>
